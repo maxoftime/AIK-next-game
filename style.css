@@ -30,6 +30,7 @@ body {
 .clock {
   margin: 0 auto;
   font-size: 3em;
+  font-family: 'Offside';
 }
 
 .clock-divider {
@@ -61,4 +62,11 @@ body {
   font-style: normal;
   font-weight: 800;
   src: local('Dosis ExtraBold'), local('Dosis-ExtraBold'), url(http://fonts.gstatic.com/s/dosis/v4/nq3OPeKr7RUSF_YDJ1woxvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2'), url(http://fonts.gstatic.com/s/dosis/v4/k9xA3bmr7wstksq4xsFJafesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Offside';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Offside'), local('Offside-Regular'), url(http://fonts.gstatic.com/s/offside/v4/ulK7IubXLBm5O8kKvy09CQ.woff2) format('woff2'), url(http://fonts.gstatic.com/s/offside/v4/_zg2zDrkjlbS-MUZInZH8g.woff) format('woff');
 }
