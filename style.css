@@ -1,0 +1,64 @@
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #333;
+  color: #444;
+  font-family: 'Dosis', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  text-shadow: 0px 1px 1px #000;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  height: 82vh;
+  margin: 0;
+  padding: 9vh 9vw;
+}
+
+.next-game {
+  display: inline;
+  font-size: 1.2em;
+
+}
+
+.clock {
+  margin: 0 auto;
+  font-size: 3em;
+}
+
+.clock-divider {
+  margin: 0 0.1em;
+}
+
+#next-match-teams {
+  font-size: 15vw;
+  text-transform: capitalize;
+  text-transform: uppercase;
+  margin: auto;
+  white-space: nowrap;
+  color: #ed0;
+}
+
+.footer-credit {
+  margin: 0 auto;
+  color: #444;
+}
+
+.footer-credit img {
+  margin-right: 0.5em;
+  margin-bottom: -0.21em;
+}
+
+
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Dosis ExtraBold'), local('Dosis-ExtraBold'), url(http://fonts.gstatic.com/s/dosis/v4/nq3OPeKr7RUSF_YDJ1woxvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2'), url(http://fonts.gstatic.com/s/dosis/v4/k9xA3bmr7wstksq4xsFJafesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
