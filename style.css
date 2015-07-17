@@ -13,12 +13,14 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  overlow: hidden;
 }
 
 .content {
   height: 82vh;
   margin: 0;
   padding: 9vh 9vw;
+  display: block;
 }
 
 .next-game {
@@ -38,12 +40,14 @@ body {
 }
 
 #next-match-teams {
-  font-size: 15vw;
+  font-size: 7vw;
   text-transform: capitalize;
   text-transform: uppercase;
   margin: auto;
   white-space: nowrap;
   color: #ed0;
+  width: 100%;
+  display: inline-block;
 }
 
 .footer-credit {
@@ -53,7 +57,8 @@ body {
 
 .footer-credit img {
   margin-right: 0.5em;
-  margin-bottom: -0.21em;
+  margin-bottom: -0.13em;
+  filter: grayscale(100%);
 }
 
 

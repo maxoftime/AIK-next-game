@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="icon" type="image/png" href="favicon.png" />
-    
+
 </head>
 
 <body>
@@ -20,13 +20,13 @@
         <h2 id="next-match-arena"></h2>
         <h3 id="next-match-league"></h3>
         <a class="footer-credit" href="http://everysport.com" id="credit-below"></a>
-    </main>     
-    
-    
+    </main>
+
+
     <script type="text/javascript" id="Everysport-API">
 
         nextMatches();
-        
+
         function nextMatches () {
             var apiKey = "3b3024b1821d19b6b9206f49ece3a251";
             var nextInAllsvenskanUrl = "http://api.everysport.com/v1/leagues/69620/events?team=9367&status=upcoming&limit=1&apikey=" + apiKey + '&callback=?';
@@ -40,7 +40,7 @@
                 dataType: 'jsonp',
                 jsonpCallback: "allsvenskanJson",
             });
-            
+
             var nextMatchElRequest = $.ajax({
                 type: 'GET',
                 url: nextInEuropaLeagueUrl,
@@ -65,7 +65,7 @@
                 var nextMatchAsVisitingTeam = nextMatchAs.visitingTeam.name;
                 var nextMatchElHomeTeam = nextMatchEl.homeTeam.name;
                 var nextMatchElVisitingTeam = nextMatchEl.visitingTeam.name;
-           
+
 
                 if ( Date.parse(nextMatchAsDate) < Date.parse(nextMatchElDate) ) {
                     console.log ('Allsvenskan är innan EL');
@@ -110,7 +110,7 @@
                 }
 
                 function addCountdownToPage() {
-                   
+
                     function startTimer(duration, display) {
 
                         var start = Date.now(),
@@ -120,32 +120,32 @@
                             minutes,
                             seconds;
                         function timer() {
-                            // get the number of seconds that have elapsed since 
+                            // get the number of seconds that have elapsed since
                             // startTimer() was called
                             //diff = duration - (((Date.now() - start) / 1000) | 0);
                             var theDateNow   = new Date();
                             var diff  = (Date.parse(nextMatchDate) - Date.parse(theDateNow))/1000;
-                            
+
                             // does the same job as parseInt truncates the float
                             days = diff / 68400 | 0;
                             hours = ((diff - days * 86400) / 3600 ) | 0;
                             minutes = ((diff - (days * 86400) - (hours * 3600)) / 60 ) | 0;
                             seconds = ((diff - (days * 86400) - (hours * 3600) - (minutes * 60)) % 60 ) | 0;
-                            
+
                             days = days < 10 ? "0" + days : days;
                             hours = hours < 10 ? "0" + hours : hours;
                             minutes = minutes < 10 ? "0" + minutes : minutes;
                             seconds = seconds < 10 ? "0" + seconds : seconds;
-                    
+
                             display.innerHTML = (
-                            '<span class="clock-number  clock-days">' + days + '</span>' + 
-                            '<span class="clock-divider">:</span>' + 
-                            '<span class="clock-number  clock-hours">' + hours + '</span>' +  
-                            '<span class="clock-divider">:</span>' + 
-                            '<span class="clock-number  clock-minutes">' + minutes +  '</span>' + 
-                            '<span class="clock-divider">:</span>' + '</span>' + 
+                            '<span class="clock-number  clock-days">' + days + '</span>' +
+                            '<span class="clock-divider">:</span>' +
+                            '<span class="clock-number  clock-hours">' + hours + '</span>' +
+                            '<span class="clock-divider">:</span>' +
+                            '<span class="clock-number  clock-minutes">' + minutes +  '</span>' +
+                            '<span class="clock-divider">:</span>' + '</span>' +
                             '<span class="clock-number  clock-seconds">' + seconds + '</span>');
-                    
+
                             if (diff <= 0) {
                                 // add one second so that the count down starts at the full duration
                                 // example 05:00 not 04:59
@@ -156,11 +156,11 @@
                         timer();
                         setInterval(timer, 1000);
                     }
-                    
+
                     window.onload = function () {
                         display = document.querySelector('#clock-id');
                         startTimer(nextMatchDate, display);
-                    };                   
+                    };
 
                 }
 
@@ -168,14 +168,14 @@
                     var creditLink = document.getElementById('credit-below');
                     creditLink.href = creditUrl;
                     creditLink.innerHTML = '<img class="credit-img" src="' + creditLogoUrl + '" alt="" />' + creditText;
-                  
+
                 }
 
                 function addTeamsToPage() {
                     var playingTeams = document.getElementById('next-match-teams');
                     playingTeams.innerHTML = (nextMatchHomeTeam + ' - ' + nextMatchVisitingTeam);
                     console.log(nextMatchHomeTeam + ' - ' + nextMatchVisitingTeam);
-                  
+
                 }
 
                 function addArenaToPage() {
@@ -188,21 +188,24 @@
                     var currentLeague = document.getElementById('next-match-league');
                     currentLeague.innerHTML = (nextMatchLeague);
                     console.log(nextMatchLeague);
-                } 
+                }
 
             }
 
-            
+
         }
 
-             
-        
 
-        
 
-    </script>    
-        
-    
+
+
+
+    </script>
+    <script src="jquery.fittext.js"></script>
+    <script>
+      jQuery("#next-match-teams").fitText();
+    </script>
+
+
 </body>
 </html>
-
