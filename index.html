@@ -69,15 +69,62 @@
 
                 if ( Date.parse(nextMatchAsDate) < Date.parse(nextMatchElDate) ) {
                     console.log ('Allsvenskan är innan EL');
-                    var nextMatchDate = nextMatchAsDate;
-                    var nextMatchHomeTeam = nextMatchAsHomeTeam;
-                    var nextMatchVisitingTeam = nextMatchAsVisitingTeam;
-                    var nextMatchArena = nextMatchAs.facts.arena.name;
-                    var nextMatchLeague = nextMatchAs.league.name;
 
-                    var creditUrl = credit.link;
-                    var creditText = credit.message;
-                    var creditLogoUrl = credit.logoUrl;
+                    try {
+                      var nextMatchDate = nextMatchAsDate;
+                      }
+                    catch(e){
+                      var nextMatchDate = 'Matchdatumet hittades ej';
+                      }
+
+                    try {
+                        var nextMatchHomeTeam = nextMatchAsHomeTeam;
+                        }
+                    catch(e){
+                        var nextMatchHomeTeam = 'Det aktuella hemmalaget hittades inte';
+                        }
+
+                    try {
+                      var nextMatchVisitingTeam = nextMatchAsVisitingTeam;
+                      }
+                    catch(e){
+                      var nextMatchVisitingTeam = 'Det aktuella bortalaget hittades inte';
+                      }
+
+                    try {
+                      var nextMatchArena = nextMatchAs.facts.arena.name;
+                          }
+                    catch(e){
+                      var nextMatchArena = 'Aktuell arena hittades inte';
+                        }
+
+                    try {
+                      var nextMatchLeague = nextMatchAs.league.name;
+                      }
+                    catch(e){
+                      var nextMatchLeague = 'Den aktuella ligan hittades inte';
+                      }
+
+                    try {
+                      var creditUrl = credit.link;
+                      }
+                    catch(e){
+                      var creditUrl = 'http://everysport.com';
+                      }
+
+                    try {
+                      var creditText = credit.message;
+                      }
+                    catch(e){
+                      var creditText = 'Provided by Everysport.com';
+                      }
+
+                    try {
+                      var creditLogoUrl = credit.logoUrl;
+                      }
+                    catch(e){
+                      var creditLogoUrl = '#';
+                      }
 
                     addCreditToPage();
                     addCountdownToPage();
@@ -88,21 +135,68 @@
 
                 else if ( Date.parse(nextMatchAsDate) > Date.parse(nextMatchElDate) ) {
                     console.log('Europa League är nästa match');
-                    var nextMatchDate = nextMatchElDate;
-                    var nextMatchHomeTeam = nextMatchElHomeTeam;
-                    var nextMatchVisitingTeam = nextMatchElVisitingTeam;
-                    var nextMatchArena = nextMatchEl.facts.arena.name;
-                    var nextMatchLeague = nextMatchEl.league.name;
 
-                    var creditUrl = credit.link;
-                    var creditText = credit.message;
-                    var creditLogoUrl = credit.logoUrl;
+                    try {
+                      var nextMatchDate = nextMatchElDate;
+                      }
+                    catch(e){
+                      var nextMatchDate = 'Matchdatumet hittades ej';
+                      }
+
+                    try {
+                        var nextMatchHomeTeam = nextMatchElHomeTeam;
+                        }
+                    catch(e){
+                        var nextMatchHomeTeam = 'Det aktuella hemmalaget hittades inte';
+                        }
+
+                    try {
+                      var nextMatchVisitingTeam = nextMatchElVisitingTeam;
+                      }
+                    catch(e){
+                      var nextMatchVisitingTeam = 'Det aktuella bortalaget hittades inte';
+                      }
+
+                    try {
+                      var nextMatchArena = nextMatchEl.facts.arena.name;
+                          }
+                    catch(e){
+                      var nextMatchArena = 'Aktuell arena hittades inte';
+                        }
+
+                    try {
+                      var nextMatchLeague = nextMatchEl.league.name;
+                      }
+                    catch(e){
+                      var nextMatchLeague = 'Den aktuella ligan hittades inte';
+                      }
+
+                    try {
+                      var creditUrl = credit.link;
+                      }
+                    catch(e){
+                      var creditUrl = 'http://everysport.com';
+                      }
+
+                    try {
+                      var creditText = credit.message;
+                      }
+                    catch(e){
+                      var creditText = 'Provided by Everysport.com';
+                      }
+
+                    try {
+                      var creditLogoUrl = credit.logoUrl;
+                      }
+                    catch(e){
+                      var creditLogoUrl = '#';
+                      }
 
                     addCreditToPage();
                     addCountdownToPage();
                     addTeamsToPage();
-                    addArenaToPage();
                     addLeagueToPage();
+                    addArenaToPage();
                 }
 
                 else {
@@ -124,10 +218,10 @@
                             // startTimer() was called
                             //diff = duration - (((Date.now() - start) / 1000) | 0);
                             var theDateNow   = new Date();
-                            var diff  = (Date.parse(nextMatchDate) - Date.parse(theDateNow))/1000;
+                            var diff  = (Date.parse(nextMatchDate) - Date.parse(theDateNow))/1000 | 0;
 
                             // does the same job as parseInt truncates the float
-                            days = diff / 68400 | 0;
+                            days = diff / 86400 | 0;
                             hours = ((diff - days * 86400) / 3600 ) | 0;
                             minutes = ((diff - (days * 86400) - (hours * 3600)) / 60 ) | 0;
                             seconds = ((diff - (days * 86400) - (hours * 3600) - (minutes * 60)) % 60 ) | 0;
